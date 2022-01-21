@@ -24,11 +24,16 @@ router.get('/', (req, res, next) => {
     })
 })
 
-router.post('/', validateTask, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
     try{
         const newTask = await Task.create(req.body)
-        console.log(newTask.task_completed)
-        next()
+        if(newTask.task_completed === 0) {
+            newTask.task_completed = false
+            res.json(newTask)
+        } else {
+            newTask.task_completed = true
+            res.json(newTask)
+        }
     } catch (err) {
         next(err)
     }

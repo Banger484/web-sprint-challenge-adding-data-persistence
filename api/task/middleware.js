@@ -6,7 +6,7 @@ async function validateTask(req, res, next) {
             task_notes, 
             task_description, 
             task_completed,
-            project_name,
+            project_id,
             project_description,
         } = req.body
         
@@ -25,10 +25,10 @@ async function validateTask(req, res, next) {
                 message: "task_completed is required"
             })
             next()
-        } else if(!project_name) {
+        } else if(!project_id) {
             res.status(400).json({
                
-                message: "project_name is required"
+                message: "project_id is required"
             })
             next()
         } else if(!project_description) {
