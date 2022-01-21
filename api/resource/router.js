@@ -19,7 +19,6 @@ router.post('/', validateResource, async (req, res, next) => {
     try{
         const newResource = await Resource.create(req.body)
         res.json(newResource)
-        next()
     } catch (err) {
         next(err)
     }
