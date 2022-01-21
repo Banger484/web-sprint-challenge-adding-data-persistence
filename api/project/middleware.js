@@ -1,4 +1,3 @@
-const Project = require('./model')
 
 async function validateProject(req, res, next) {
     try{
@@ -15,6 +14,7 @@ async function validateProject(req, res, next) {
         next(err)
     }
 }
+
 
 
 module.exports = {
