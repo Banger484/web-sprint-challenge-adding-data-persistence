@@ -1,4 +1,3 @@
-const db = require('../../data/dbConfig')
 const Resource = require('./model')
 
 function validateResource(req, res, next) {

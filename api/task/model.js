@@ -26,8 +26,6 @@ function getById(id) {
 
 async function create(task) {
     const [id] = await db('tasks').insert(task)
-    .join('projects', 'tasks.project_id', 'projects.project_id')
-    
     return getById(id)
     
 }

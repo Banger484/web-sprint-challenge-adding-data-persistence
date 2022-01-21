@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
     })
 })
 
-router.post('/', async (req, res, next) => {
+router.post('/', validateTask, async (req, res, next) => {
     try{
         const newTask = await Task.create(req.body)
         if(newTask.task_completed === 0) {
